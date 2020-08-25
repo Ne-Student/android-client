@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">androclient</string>
+
+    <string name="lesson">Lesson</string>
+    <string name="teacher">Teacher</string>
+    <string name="task">Task</string>
+
+    <string name="add_plus_sign">+</string>
+
+    <!-- Add item bottom sheet strings -->
+    <string name="add_item">Add new</string>
+    <string name="add_button_description">Add button</string>
 </resources>

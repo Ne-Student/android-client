@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken
 import com.nestudent.android.myapplication.api.model.AccessToken
 import com.nestudent.android.myapplication.api.model.AuthenticationData
 import com.nestudent.android.myapplication.api.model.RegisterData
+import com.nestudent.android.myapplication.utils.SharedPreferencesWrapper
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
@@ -53,7 +54,6 @@ class Repository {
         override fun onSuccess(response: WeakApiResponse<AccessToken>) {
             if (response.payload?.accessToken != null) {
                 accessToken = response.payload.accessToken
-                // TODO: Add saving token to keystore
                 result.value = Response.Ok(response.payload)
             } else {
                 result.value = Response.Error.UnresolvedApiError()
@@ -107,7 +107,7 @@ class Repository {
                 newRequestBuilder.addHeader("Authorization", "Bearer $accessToken")
 
             val newRequest = newRequestBuilder
-                .addHeader("Prefer", "code=401")
+                //.addHeader("Prefer", "code=401") // TODO: disable on backend ready
                 .build()
             return chain.proceed(newRequest)
         }

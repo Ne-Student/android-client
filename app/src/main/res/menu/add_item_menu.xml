@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/lesson"
+        android:title="@string/lesson"
+        android:icon="@android:drawable/ic_menu_day"/>
+
+    <item
+        android:id="@+id/teacher"
+        android:title="@string/teacher"
+        android:icon="@android:drawable/ic_menu_week"/>
+
+    <item
+        android:id="@+id/task"
+        android:title="@string/task"
+        android:icon="@android:drawable/btn_star"/>
+</menu>
