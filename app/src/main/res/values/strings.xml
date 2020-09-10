@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">androclient</string>
+    <string name="app_name">Studa</string>
 
     <string name="lesson">Lesson</string>
     <string name="teacher">Teacher</string>
@@ -10,4 +10,15 @@
     <!-- Add item bottom sheet strings -->
     <string name="add_item">Add new</string>
     <string name="add_button_description">Add button</string>
+    <string name="add_teacher">Add Teacher</string>
+
+    <!-- Main navigation bottom sheet strings -->
+    <string name="assignments">Assignments</string>
+    <string name="today">Today</string>
+    <string name="details">Details</string>
+
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="optional">Optional</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

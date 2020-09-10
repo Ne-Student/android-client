@@ -15,7 +15,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:src="@android:drawable/ic_menu_week"
@@ -29,19 +29,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/add_item"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textColor="@color/colorTextDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageButton
-            android:id="@+id/add_button"
+            android:id="@+id/cancel_button"
             android:layout_width="30dp"
             android:layout_height="0dp"
             android:layout_gravity="bottom|right"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:background="@color/colorWhite"
             android:src="@drawable/ic_cancel_48dp"
@@ -59,7 +59,8 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
         app:menu="@menu/add_item_menu"/>

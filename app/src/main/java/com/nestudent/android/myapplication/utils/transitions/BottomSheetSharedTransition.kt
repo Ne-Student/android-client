@@ -33,7 +33,7 @@ class BottomSheetSharedTransition : Transition {
     companion object {
         private const val PROP_HEIGHT = "heightTransition:height"
         private const val PROP_VIEW_TYPE = "heightTransition:viewType"
-        private const val ANIMATION_DURATION = 400L
+        private const val ANIMATION_DURATION = 300L
 
         private val TransitionProperties = arrayOf(PROP_HEIGHT, PROP_VIEW_TYPE)
     }
