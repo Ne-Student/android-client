@@ -20,6 +20,6 @@
         android:background="@color/colorWhite"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
-        app:menu="@menu/add_item_menu" />
+        app:menu="@menu/nav_main_menu" />
 
 </LinearLayout>

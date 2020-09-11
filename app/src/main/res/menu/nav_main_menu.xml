@@ -3,15 +3,15 @@
     <item
         android:id="@+id/assignments"
         android:title="@string/assignments"
-        android:icon="@android:drawable/ic_menu_day"/>
+        android:icon="@mipmap/assignment_32dp"/>
 
     <item
         android:id="@+id/today"
         android:title="@string/today"
-        android:icon="@android:drawable/ic_menu_week"/>
+        android:icon="@mipmap/today_32dp"/>
 
     <item
         android:id="@+id/details"
         android:title="@string/details"
-        android:icon="@android:drawable/btn_star"/>
+        android:icon="@mipmap/details_32dp"/>
 </menu>

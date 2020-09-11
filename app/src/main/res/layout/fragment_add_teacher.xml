@@ -25,8 +25,7 @@
         android:padding="8dp"
         android:paddingStart="16dp"
         android:inputType="textNoSuggestions"
-        android:background="@drawable/round_button_gray"
-        tools:ignore="RtlSymmetry" />
+        android:background="@drawable/round_button_gray" />
 
     <TextView
         android:layout_width="wrap_content"

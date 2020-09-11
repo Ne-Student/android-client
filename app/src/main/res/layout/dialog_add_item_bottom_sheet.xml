@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/modal_view"
-    android:orientation="vertical"
-    app:behavior_hideable="true"
-    app:layout_behavior="@string/bottom_sheet_behavior" >
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,7 +18,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@android:drawable/ic_menu_week"
+            android:src="@mipmap/sparcle_plus_48dp"
+            app:tint="@color/colorTextDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +31,7 @@
             android:layout_marginStart="8dp"
             android:text="@string/add_item"
             android:textColor="@color/colorTextDark"
-            android:textSize="20sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +55,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorDelimeterLight" />
+        android:background="@color/colorDelimiterLight" />
 
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/navigation_view"
