@@ -1,13 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="500dp"
-    android:transitionName="checkoutTransition">
+    android:layout_height="match_parent"
+    android:transitionName="checkoutTransition"
+    android:overScrollMode="never">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add_task"/>
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="add_task" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/first_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/round_button_gray"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/last_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_button_gray"
+            android:hint="@string/optional"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/round_button_accent"
+            android:text="@string/add_teacher"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/first_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/round_button_gray"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/last_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_button_gray"
+            android:hint="@string/optional"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/round_button_accent"
+            android:text="@string/add_teacher"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/last_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_button_gray"
+            android:hint="@string/optional"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/round_button_accent"
+            android:text="@string/add_teacher"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/last_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_button_gray"
+            android:hint="@string/optional"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/round_button_accent"
+            android:text="@string/add_teacher"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/last_name"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_button_gray"
+            android:hint="@string/optional"
+            android:inputType="textNoSuggestions"
+            android:padding="8dp"
+            android:paddingStart="16dp"
+            android:textColor="@color/colorLightGray"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/round_button_accent"
+            android:text="@string/add_teacher"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

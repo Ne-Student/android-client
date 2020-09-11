@@ -1,18 +1,14 @@
 package com.nestudent.android.myapplication.view.today.bottomsheet
 
-import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Build
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.widget.FrameLayout
 import android.widget.ImageButton
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -25,7 +21,6 @@ import com.nestudent.android.myapplication.R
 import com.nestudent.android.myapplication.utils.transitions.BottomSheetSharedTransition
 import com.nestudent.android.myapplication.utils.views.InvisibleFragment
 
-
 private const val TAG = "BottomSheet"
 
 class AddItemBottomDialogFragment : BottomSheetDialogFragment() {
@@ -34,6 +29,21 @@ class AddItemBottomDialogFragment : BottomSheetDialogFragment() {
 
     private val viewModel by lazy {
         ViewModelProvider(this).get(BottomSheetViewModel::class.java)
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val bottomSheetDialog =
+            super.onCreateDialog(savedInstanceState) as BottomSheetDialog
+        bottomSheetDialog.setOnShowListener { dia ->
+            val dialog = dia as BottomSheetDialog
+            val bottomSheet =
+                dialog.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            BottomSheetBehavior.from<FrameLayout?>(bottomSheet!!).state =
+                BottomSheetBehavior.STATE_EXPANDED
+            BottomSheetBehavior.from<FrameLayout?>(bottomSheet).skipCollapsed = true
+            BottomSheetBehavior.from<FrameLayout?>(bottomSheet).isHideable = true
+        }
+        return bottomSheetDialog
     }
 
     override fun onCreateView(
