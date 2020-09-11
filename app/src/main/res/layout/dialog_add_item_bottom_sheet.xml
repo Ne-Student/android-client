@@ -56,14 +56,14 @@
         android:layout_height="1dp"
         android:background="@color/colorDelimeterLight"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:itemIconSize="@dimen/bottom_navigation_icon_size"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
-        app:menu="@menu/add_item_menu"/>
+        app:menu="@menu/add_item_menu" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

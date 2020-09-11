@@ -5,6 +5,7 @@
     <color name="colorAccent">#8F60B7</color>
     <color name="colorWhite">#FFFF</color>
     <color name="colorLightGray">#F0F0F0</color>
+    <color name="colorDarkerGray">#AAA</color>
     <color name="colorTextDark">#414141</color>
     <color name="colorTextLight">#D9D7D7</color>
     <color name="colorDelimeterLight">#D9D7D7</color>
