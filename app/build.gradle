@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
 
     // Retrofit - API Calls
+    implementation 'com.squareup.okhttp3:okhttp:3.1.2'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
 
@@ -70,6 +71,10 @@ dependencies {
 
     // BottomNavigationViewEx
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+
+    // Joda Time
+    implementation 'joda-time:joda-time:2.10.6'
+    implementation 'com.fatboyindustrial.gson-jodatime-serialisers:gson-jodatime-serialisers:1.6.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

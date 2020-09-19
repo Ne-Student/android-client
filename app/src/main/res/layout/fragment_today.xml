@@ -6,16 +6,9 @@
 
     <include layout="@layout/fragment_today_custom_action_bar"/>
 
-    <View
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/bottom_shadow_gradient"/>
-
-    <TextView
-        android:id="@+id/test_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="test_fragment"/>
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"/>
 
 </LinearLayout>
