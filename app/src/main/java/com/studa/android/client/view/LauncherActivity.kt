@@ -6,8 +6,7 @@ import android.os.Bundle
 import com.studa.android.client.R
 import com.studa.android.client.StudaApp
 import com.studa.android.client.api.Repository
-import com.studa.android.client.api.model.AccessToken
-import com.studa.android.client.di.DaggerAppComponent
+import com.studa.android.client.api.dto.AccessToken
 import com.studa.android.client.utils.getAccessToken
 import com.studa.android.client.utils.saveAccessToken
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -26,19 +25,18 @@ class LauncherActivity : AppCompatActivity() {
         setContentView(R.layout.activity_launcher)
         (application as StudaApp).appComponent.inject(this)
 
-        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
-
+        // TODO: Delete this on backend implementation finish
         saveAccessToken(applicationContext, AccessToken("token"))
         Single.fromCallable {
             getAccessToken(applicationContext)
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ token ->
-                if (token != null && fragment == null) {
+                if (token != null) {
                     repository.accessToken = token
                     startActivity(MainActivity::class.java)
                     overridePendingTransition(0, 0)
-                } else if (token == null) {
+                } else {
                     startActivity(AuthenticationActivity::class.java)
                     overridePendingTransition(0, 0)
                 }

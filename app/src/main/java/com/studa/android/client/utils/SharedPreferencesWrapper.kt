@@ -2,7 +2,7 @@ package com.studa.android.client.utils
 
 import android.app.Activity
 import android.content.Context
-import com.studa.android.client.api.model.AccessToken
+import com.studa.android.client.api.dto.AccessToken
 
 
 private const val ACCESS_TOKEN = "access_token"

@@ -2,7 +2,7 @@ package com.studa.android.client.api.services.teacher
 
 import androidx.lifecycle.LiveData
 import com.studa.android.client.api.Response
-import com.studa.android.client.api.model.Teacher
+import com.studa.android.client.api.dto.Teacher
 import java.util.*
 
 interface TeacherService {

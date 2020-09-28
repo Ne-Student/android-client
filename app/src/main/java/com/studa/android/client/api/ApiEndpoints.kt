@@ -1,12 +1,11 @@
 package com.studa.android.client.api
 
-import com.studa.android.client.api.model.AccessToken
-import com.studa.android.client.api.model.AuthenticationData
-import com.studa.android.client.api.model.RegisterData
-import com.studa.android.client.api.model.Teacher
+import com.studa.android.client.api.dto.AccessToken
+import com.studa.android.client.api.dto.AuthenticationData
+import com.studa.android.client.api.dto.RegisterData
+import com.studa.android.client.api.dto.Teacher
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
-import okhttp3.ResponseBody
 import retrofit2.http.*
 import java.util.*
 

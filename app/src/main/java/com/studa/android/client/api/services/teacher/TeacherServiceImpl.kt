@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.studa.android.client.api.ApiEndpoints
 import com.studa.android.client.api.Response
 import com.studa.android.client.api.WeakApiResponse
-import com.studa.android.client.api.model.Teacher
+import com.studa.android.client.api.dto.Teacher
 import com.studa.android.client.utils.defaultErrorHandler
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver

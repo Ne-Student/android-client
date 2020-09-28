@@ -1,4 +1,4 @@
-package com.studa.android.client.api.model
+package com.studa.android.client.api.dto
 
 data class AuthenticationData(
     val login: String,

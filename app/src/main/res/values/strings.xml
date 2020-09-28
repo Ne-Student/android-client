@@ -21,4 +21,13 @@
     <string name="last_name">Last Name</string>
     <string name="optional">Optional</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <!-- Welcome screen strings -->
+    <string name="welcome_label">Welcome to Studa</string>
+    <string name="welcome_text_1">The one place to keep all your studies up to date. Track your lessons, check on your homework and keep in touch with your teachers with ease</string>
+    <string name="welcome_text_2">To continue using app please</string>
+    <string name="login">Log in</string>
+    <string name="register">Register</string>
+    <string name="or">or</string>
+    <string name="continue_online">Continue using app offline</string>
 </resources>

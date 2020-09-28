@@ -6,9 +6,9 @@ import com.studa.android.client.api.ApiEndpoints
 import com.studa.android.client.api.Repository
 import com.studa.android.client.api.Response
 import com.studa.android.client.api.WeakApiResponse
-import com.studa.android.client.api.model.AccessToken
-import com.studa.android.client.api.model.AuthenticationData
-import com.studa.android.client.api.model.RegisterData
+import com.studa.android.client.api.dto.AccessToken
+import com.studa.android.client.api.dto.AuthenticationData
+import com.studa.android.client.api.dto.RegisterData
 import com.studa.android.client.utils.defaultErrorHandler
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
@@ -17,8 +17,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 
-class AuthenticationServiceImpl @Inject constructor(val api: ApiEndpoints, val repository: Repository) :
-    AuthenticationService {
+class AuthenticationServiceImpl @Inject constructor(
+    val api: ApiEndpoints, val repository: Repository
+) : AuthenticationService {
     private fun getAccessTokenObservableSubscriber(
         result: MutableLiveData<Response<AccessToken>>
     ) = object : SingleObserver<WeakApiResponse<AccessToken>> {
