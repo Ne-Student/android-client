@@ -1,7 +1,8 @@
-package com.studa.android.client
+package com.studa.android.client.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.studa.android.client.R
 
 class AuthenticationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

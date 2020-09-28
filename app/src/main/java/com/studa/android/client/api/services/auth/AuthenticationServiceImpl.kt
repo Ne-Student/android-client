@@ -2,6 +2,7 @@ package com.studa.android.client.api.services.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.studa.android.client.api.ApiEndpoints
 import com.studa.android.client.api.Repository
 import com.studa.android.client.api.Response
 import com.studa.android.client.api.WeakApiResponse
@@ -13,17 +14,17 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import javax.inject.Inject
 
-class AuthenticationServiceImpl: AuthenticationService {
-    // TODO: Inject this with dagger 2
-    val api = Repository.instance.api
 
+class AuthenticationServiceImpl @Inject constructor(val api: ApiEndpoints, val repository: Repository) :
+    AuthenticationService {
     private fun getAccessTokenObservableSubscriber(
         result: MutableLiveData<Response<AccessToken>>
     ) = object : SingleObserver<WeakApiResponse<AccessToken>> {
         override fun onSuccess(response: WeakApiResponse<AccessToken>) =
             if (response.payload?.accessToken != null) {
-                Repository.instance.accessToken = response.payload.accessToken
+                repository.accessToken = response.payload.accessToken
                 result.value = Response.Ok(response.payload)
             } else {
                 result.value = Response.Error.UnresolvedApiError()

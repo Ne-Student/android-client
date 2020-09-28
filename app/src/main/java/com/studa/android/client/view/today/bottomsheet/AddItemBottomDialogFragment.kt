@@ -36,14 +36,16 @@ class AddItemBottomDialogFragment : BottomSheetDialogFragment() {
         val bottomSheetDialog =
             super.onCreateDialog(savedInstanceState) as BottomSheetDialog
         bottomSheetDialog.setOnShowListener { dia ->
-            val dialog = dia as BottomSheetDialog
-            val bottomSheet = dialog.findViewById<FrameLayout>(
+            val dialog = dia as? BottomSheetDialog
+            val bottomSheet = dialog?.findViewById<FrameLayout>(
                 com.google.android.material.R.id.design_bottom_sheet
             )
-            BottomSheetBehavior.from<FrameLayout?>(bottomSheet!!).state =
-                BottomSheetBehavior.STATE_EXPANDED
-            BottomSheetBehavior.from<FrameLayout?>(bottomSheet).skipCollapsed = true
-            BottomSheetBehavior.from<FrameLayout?>(bottomSheet).isHideable = true
+            bottomSheet?.let {
+                BottomSheetBehavior.from(bottomSheet).state =
+                    BottomSheetBehavior.STATE_EXPANDED
+                BottomSheetBehavior.from(bottomSheet).skipCollapsed = true
+                BottomSheetBehavior.from(bottomSheet).isHideable = true
+            }
         }
         return bottomSheetDialog
     }
@@ -59,52 +61,29 @@ class AddItemBottomDialogFragment : BottomSheetDialogFragment() {
             false
         )
 
-        cancelButton = (view.findViewById(R.id.cancel_button) as ImageButton).apply {
+        cancelButton = view.findViewById(R.id.cancel_button) as ImageButton
+        bottomNavigationView = view.findViewById(R.id.navigation_view)
+                as BottomNavigationViewEx
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        cancelButton.apply {
             setOnClickListener {
                 dismiss()
             }
         }
 
-        bottomNavigationView = (view.findViewById(R.id.navigation_view)
-                as BottomNavigationViewEx).apply {
-            uncheckAllItems()
-            setIconSize(48F, 48F)
-            itemHeight = dpToInt(88F, resources)
-            setPadding(dpToInt(10F, resources))
-            setLargeTextSize(20F)
-            setSmallTextSize(18F)
-            setOnNavigationItemSelectedListener {
-                if (viewModel.currentFragment == CurrentFragment.UNSELECTED) {
-                    setOnNavigationItemReselectedListener {}
-                }
-
-                val newFragment = when (it.itemId) {
-                    R.id.lesson -> {
-                        viewModel.currentFragment = CurrentFragment.LESSON_FRAGMENT
-                        AddLessonFragment.newInstance()
-                    }
-                    R.id.teacher -> {
-                        viewModel.currentFragment = CurrentFragment.TEACHER_FRAGMENT
-                        AddTeacherFragment.newInstance()
-                    }
-                    else -> {
-                        viewModel.currentFragment = CurrentFragment.TASK_FRAGMENT
-                        AddTaskFragment.newInstance()
-                    }
-                }
-                newFragment.sharedElementEnterTransition = AutoTransition()
-
-                transitToFragment(newFragment)
-                true
-            }
+        bottomNavigationView.apply {
+            configureInitial()
         }
 
         if (viewModel.currentFragment == CurrentFragment.UNSELECTED) {
             replaceWithEmptyFragment()
         }
-
-
-        return view
     }
 
     private fun transitToFragment(newFragment: Fragment) {
@@ -133,6 +112,39 @@ class AddItemBottomDialogFragment : BottomSheetDialogFragment() {
             menu.getItem(i).isChecked = false
         }
         menu.setGroupCheckable(0, true, true)
+    }
+
+    private fun BottomNavigationViewEx.configureInitial() {
+        uncheckAllItems()
+        setIconSize(48F, 48F)
+        itemHeight = dpToInt(88F, resources)
+        setPadding(dpToInt(10F, resources))
+        setLargeTextSize(20F)
+        setSmallTextSize(18F)
+        setOnNavigationItemSelectedListener {
+            if (viewModel.currentFragment == CurrentFragment.UNSELECTED) {
+                setOnNavigationItemReselectedListener {}
+            }
+
+            val newFragment = when (it.itemId) {
+                R.id.lesson -> {
+                    viewModel.currentFragment = CurrentFragment.LESSON_FRAGMENT
+                    AddLessonFragment.newInstance()
+                }
+                R.id.teacher -> {
+                    viewModel.currentFragment = CurrentFragment.TEACHER_FRAGMENT
+                    AddTeacherFragment.newInstance()
+                }
+                else -> {
+                    viewModel.currentFragment = CurrentFragment.TASK_FRAGMENT
+                    AddTaskFragment.newInstance()
+                }
+            }
+            newFragment.sharedElementEnterTransition = AutoTransition()
+
+            transitToFragment(newFragment)
+            true
+        }
     }
 
     private fun replaceWithEmptyFragment() =

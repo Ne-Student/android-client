@@ -1,4 +1,4 @@
-package com.studa.android.client
+package com.studa.android.client.view
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.studa.android.client.R
 import com.studa.android.client.api.Repository
 import com.studa.android.client.api.model.Teacher
 import com.studa.android.client.api.services.teacher.TeacherServiceImpl
@@ -39,10 +40,6 @@ class MainActivity : AppCompatActivity(), FragmentChanger {
                 setSmallTextSize(12F)
                 currentItem = 1
             }
-
-        TeacherServiceImpl().getAllAccessibleTeachers().observe(this) {
-            Log.d(TAG, "onCreate: $it")
-        }
     }
 
     override fun replaceFragment(fragment: Fragment) {

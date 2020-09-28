@@ -12,9 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studa.android.client.R
+import com.studa.android.client.StudaApp
 import com.studa.android.client.view.today.calendar.FragmentChanger
 import com.studa.android.client.view.today.bottomsheet.AddItemBottomDialogFragment
 import com.studa.android.client.view.today.calendar.CalendarFragment
+import javax.inject.Inject
 
 private const val TAG = "TodayFragment"
 
@@ -24,6 +26,9 @@ class TodayFragment : Fragment() {
     private lateinit var addButton: ImageButton
     private lateinit var accessToken: String
     private lateinit var recyclerView: RecyclerView
+
+    @Inject
+    lateinit var repository: Repository
 
     private val list = arrayListOf(
         "hello", "test", "asdg", "asdg", "sdgsdg",
@@ -36,8 +41,8 @@ class TodayFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        accessToken = Repository.instance.accessToken!!
+        (activity?.application as StudaApp).appComponent.inject(this)
+        accessToken = repository.accessToken!!
     }
 
     override fun onCreateView(

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".StudaApp"
         android:allowBackup="true"
         android:icon="@mipmap/launcher_logo_48dp"
         android:roundIcon="@mipmap/launcher_logo_48dp"
@@ -15,15 +16,15 @@
         android:theme="@style/AppTheme"
         tools:targetApi="24">
 
-        <activity android:name="com.studa.android.client.AuthenticationActivity" />
+        <activity android:name="com.studa.android.client.view.AuthenticationActivity" />
 
         <activity
-            android:name="com.studa.android.client.MainActivity"
+            android:name="com.studa.android.client.view.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.studa.android.client.LauncherActivity"
+            android:name="com.studa.android.client.view.LauncherActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

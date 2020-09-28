@@ -19,11 +19,13 @@ import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
+import javax.inject.Singleton
 
 
 private const val BASE_URL = "http://10.0.2.2:4010/"
 private const val TAG = "Repository"
 
+// TODO: Refactor this class, potentially just delete it
 class Repository {
     private val retrofit: Retrofit
     val api: ApiEndpoints
@@ -49,8 +51,6 @@ class Repository {
         api = retrofit.create(ApiEndpoints::class.java)
     }
 
-
-
     inner class AuthInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
             val newRequestBuilder = chain.request().newBuilder()
@@ -63,13 +63,5 @@ class Repository {
                 .build()
             return chain.proceed(newRequest)
         }
-    }
-
-    companion object {
-        private val _instance: Repository by lazy {
-            Repository()
-        }
-        val instance: Repository
-            get() = _instance
     }
 }
