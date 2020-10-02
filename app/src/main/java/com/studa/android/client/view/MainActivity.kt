@@ -10,9 +10,11 @@ import com.studa.android.client.R
 import com.studa.android.client.utils.dpToInt
 import com.studa.android.client.view.today.TodayFragment
 import com.studa.android.client.view.today.calendar.FragmentChanger
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "MainActivity"
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), FragmentChanger {
     private lateinit var bottomNavigationView: BottomNavigationView
 

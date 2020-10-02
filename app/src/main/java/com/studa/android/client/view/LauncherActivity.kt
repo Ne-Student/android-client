@@ -4,11 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.studa.android.client.R
-import com.studa.android.client.StudaApp
-import com.studa.android.client.api.Repository
-import com.studa.android.client.api.dto.AccessToken
-import com.studa.android.client.utils.getAccessToken
-import com.studa.android.client.utils.saveAccessToken
+import com.studa.android.client.api.network_wrapper.NetworkWrapper
+import com.studa.android.client.utils.shared_preferences.SharedPreferencesWrapper
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -16,24 +14,28 @@ import javax.inject.Inject
 
 private const val TAG = "MainActivity"
 
+@AndroidEntryPoint
 class LauncherActivity : AppCompatActivity() {
     @Inject
-    lateinit var repository: Repository
+    lateinit var networkWrapper: NetworkWrapper
+
+    @Inject
+    lateinit var sharedPreferencesWrapper: SharedPreferencesWrapper
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.SplashScreenTheme)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_launcher)
-        (application as StudaApp).appComponent.inject(this)
 
         // TODO: Delete this on backend implementation finish
-        saveAccessToken(applicationContext, AccessToken("token"))
+        //sharedPreferencesWrapper.saveAccessToken("token")
+
         Single.fromCallable {
-            getAccessToken(applicationContext)
+            sharedPreferencesWrapper.getAccessToken()
         }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ token ->
                 if (token != null) {
-                    repository.accessToken = token
+                    networkWrapper.saveAccessToken(token)
                     startActivity(MainActivity::class.java)
                     overridePendingTransition(0, 0)
                 } else {
@@ -46,7 +48,9 @@ class LauncherActivity : AppCompatActivity() {
     }
 
     private fun <T> startActivity(clazz: Class<T>) {
-        val intent = Intent(this, clazz)
+        val intent = Intent(this, clazz).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        }
         startActivity(intent)
     }
 }

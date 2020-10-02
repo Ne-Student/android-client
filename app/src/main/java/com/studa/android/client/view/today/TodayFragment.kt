@@ -1,8 +1,7 @@
 package com.studa.android.client.view.today
 
-import com.studa.android.client.api.Repository
-
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,14 +11,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studa.android.client.R
-import com.studa.android.client.StudaApp
+import com.studa.android.client.api.network_wrapper.NetworkWrapper
 import com.studa.android.client.view.today.calendar.FragmentChanger
 import com.studa.android.client.view.today.bottomsheet.AddItemBottomDialogFragment
 import com.studa.android.client.view.today.calendar.CalendarFragment
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 private const val TAG = "TodayFragment"
 
+@AndroidEntryPoint
 class TodayFragment : Fragment() {
     private lateinit var dayTextView: TextView
     private lateinit var dateTextView: TextView
@@ -28,7 +29,7 @@ class TodayFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
 
     @Inject
-    lateinit var repository: Repository
+    lateinit var networkWrapper: NetworkWrapper
 
     private val list = arrayListOf(
         "hello", "test", "asdg", "asdg", "sdgsdg",
@@ -41,8 +42,13 @@ class TodayFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity?.application as StudaApp).appComponent.inject(this)
-        accessToken = repository.accessToken!!
+        accessToken = try {
+            networkWrapper.getAccessToken()!!
+        } catch (e: Exception) {
+            // TODO: revisit this, potentially move user to login activity
+            Log.d(TAG, "Error unwrapping access token. ${e.message}")
+            ""
+        }
     }
 
     override fun onCreateView(

@@ -26,8 +26,13 @@
     <string name="welcome_label">Welcome to Studa</string>
     <string name="welcome_text_1">The one place to keep all your studies up to date. Track your lessons, check on your homework and keep in touch with your teachers with ease</string>
     <string name="welcome_text_2">To continue using app please</string>
-    <string name="login">Log in</string>
+    <string name="log_in">Log in</string>
     <string name="register">Register</string>
     <string name="or">or</string>
     <string name="continue_online">Continue using app offline</string>
+
+    <!-- Login screen strings -->
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="bottom_label">Don’t have an account?\nConsider creating a new one</string>
 </resources>

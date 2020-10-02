@@ -9,20 +9,19 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="18dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:src="@mipmap/studa_logo_title_100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/colorAccent" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
         android:orientation="vertical"
-        android:padding="24dp"
+        android:paddingVertical="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -31,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:paddingHorizontal="24dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/welcome_label"
             android:textColor="@color/colorTextDark"
@@ -40,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:paddingHorizontal="24dp"
             android:text="@string/welcome_text_1"
             android:textColor="@color/colorTextDark"
             android:textSize="18sp" />
@@ -48,23 +49,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
+            android:paddingHorizontal="24dp"
             android:text="@string/welcome_text_2"
             android:textColor="@color/colorTextDark"
             android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="0dp"
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/login_button"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="3"
+                android:layout_marginLeft="24dp"
                 android:background="@drawable/round_button_accent"
                 android:elevation="8dp"
-                android:text="@string/login"
+                android:text="@string/log_in"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 android:textStyle="normal"
@@ -82,9 +86,11 @@
                 android:textSize="18sp" />
 
             <Button
+                android:id="@+id/register_button"
                 android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_weight="3"
+                android:layout_marginRight="24dp"
                 android:background="@drawable/round_button_accent"
                 android:elevation="8dp"
                 android:text="@string/register"
