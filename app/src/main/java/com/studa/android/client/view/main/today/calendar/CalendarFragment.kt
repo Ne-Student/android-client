@@ -1,4 +1,4 @@
-package com.studa.android.client.view.today.bottomsheet
+package com.studa.android.client.view.main.today.calendar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.studa.android.client.R
 
-class AddTeacherFragment : Fragment() {
+class CalendarFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_teacher, container, false)
-    }
-
-    companion object {
-        fun newInstance(): AddTeacherFragment {
-            return AddTeacherFragment()
-        }
+        val view = inflater.inflate(R.layout.fragment_calendar, container, false)
+        return view
     }
 }

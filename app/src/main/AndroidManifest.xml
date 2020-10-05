@@ -16,15 +16,15 @@
         android:theme="@style/AppTheme"
         tools:targetApi="24">
 
-        <activity android:name="com.studa.android.client.view.AuthenticationActivity" />
+        <activity android:name="com.studa.android.client.view.auth.AuthenticationActivity" />
 
         <activity
-            android:name="com.studa.android.client.view.MainActivity"
+            android:name="com.studa.android.client.view.main.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.studa.android.client.view.LauncherActivity"
+            android:name="com.studa.android.client.view.launcher.LauncherActivity"
             android:noHistory="true"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>

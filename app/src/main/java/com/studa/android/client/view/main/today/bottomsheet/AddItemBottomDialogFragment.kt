@@ -1,4 +1,4 @@
-package com.studa.android.client.view.today.bottomsheet
+package com.studa.android.client.view.main.today.bottomsheet
 
 import android.app.Dialog
 import android.os.Build
@@ -15,7 +15,7 @@ import androidx.transition.AutoTransition
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.studa.android.client.view.today.bottomsheet.BottomSheetViewModel.CurrentFragment
+import com.studa.android.client.view.main.today.bottomsheet.BottomSheetViewModel.CurrentFragment
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.studa.android.client.R
 import com.studa.android.client.utils.dpToInt

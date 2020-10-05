@@ -3,7 +3,7 @@ package com.studa.android.client.api.dto
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class Teacher(
+data class TeacherDTO(
     var id: UUID? = null,
 
     @SerializedName("associated_account_id")

@@ -3,9 +3,9 @@ package com.studa.android.client.api.data_sources.impl
 import com.studa.android.client.api.Response
 import com.studa.android.client.api.WeakApiResponse
 import com.studa.android.client.api.data_sources.AuthenticationDataSource
-import com.studa.android.client.api.dto.AccessToken
-import com.studa.android.client.api.dto.AuthenticationData
-import com.studa.android.client.api.dto.RegisterData
+import com.studa.android.client.api.dto.AccessTokenDTO
+import com.studa.android.client.api.dto.AuthenticationDataDTO
+import com.studa.android.client.api.dto.RegisterDataDTO
 import com.studa.android.client.api.network_wrapper.NetworkWrapper
 import com.studa.android.client.utils.defaultErrorHandler
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -21,9 +21,9 @@ class AuthenticationDataSourceImpl @Inject constructor(
    val networkWrapper: NetworkWrapper
 ) : AuthenticationDataSource {
     private fun getAccessTokenObservableSubscriber(
-        emitter: SingleEmitter<Response<AccessToken>>
-    ) = object : SingleObserver<WeakApiResponse<AccessToken>> {
-        override fun onSuccess(response: WeakApiResponse<AccessToken>) =
+        emitter: SingleEmitter<Response<AccessTokenDTO>>
+    ) = object : SingleObserver<WeakApiResponse<AccessTokenDTO>> {
+        override fun onSuccess(response: WeakApiResponse<AccessTokenDTO>) =
             if (response.payload?.accessToken != null) {
                 // TODO: revisit this code
                 response.payload.accessToken?.let {
@@ -40,7 +40,7 @@ class AuthenticationDataSourceImpl @Inject constructor(
         override fun onSubscribe(d: Disposable) = Unit
     }
 
-    override fun registerUser(registerData: RegisterData): Single<Response<AccessToken>> =
+    override fun registerUser(registerData: RegisterDataDTO): Single<Response<AccessTokenDTO>> =
         Single.create { emitter ->
             networkWrapper.getApi().registerUser(registerData)
                 .subscribeOn(Schedulers.io())
@@ -48,7 +48,7 @@ class AuthenticationDataSourceImpl @Inject constructor(
                 .subscribe(getAccessTokenObservableSubscriber(emitter))
         }
 
-    override fun loginUser(authData: AuthenticationData): Single<Response<AccessToken>> =
+    override fun loginUser(authData: AuthenticationDataDTO): Single<Response<AccessTokenDTO>> =
         Single.create { emitter ->
             networkWrapper.getApi().loginUser(authData)
                 .subscribeOn(Schedulers.io())

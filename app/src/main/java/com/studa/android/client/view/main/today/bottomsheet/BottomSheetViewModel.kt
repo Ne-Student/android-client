@@ -1,4 +1,4 @@
-package com.studa.android.client.view.today.bottomsheet
+package com.studa.android.client.view.main.today.bottomsheet
 
 import androidx.lifecycle.ViewModel
 

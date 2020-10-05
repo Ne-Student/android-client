@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import org.joda.time.DateTime
 import org.joda.time.LocalTime
 
-data class Repeat(
+data class RepeatDTO(
     var day: Int? = null,
 
     @SerializedName("start_date")

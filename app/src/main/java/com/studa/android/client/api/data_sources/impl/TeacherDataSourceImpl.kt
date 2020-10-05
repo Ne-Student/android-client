@@ -3,7 +3,7 @@ package com.studa.android.client.api.data_sources.impl
 import com.studa.android.client.api.Response
 import com.studa.android.client.api.WeakApiResponse
 import com.studa.android.client.api.data_sources.TeacherDataSource
-import com.studa.android.client.api.dto.Teacher
+import com.studa.android.client.api.dto.TeacherDTO
 import com.studa.android.client.api.network_wrapper.NetworkWrapper
 import com.studa.android.client.utils.defaultErrorHandler
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -18,7 +18,7 @@ class TeacherDataSourceImpl @Inject constructor(
 ) : TeacherDataSource {
     private val api = networkWrapper.getApi()
 
-    override fun createTeacher(teacher: Teacher): Single<Response<Teacher>> =
+    override fun createTeacher(teacher: TeacherDTO): Single<Response<TeacherDTO>> =
         Single.create { emitter ->
             api.createTeacher(teacher)
                 .subscribeOn(Schedulers.io())
@@ -26,7 +26,7 @@ class TeacherDataSourceImpl @Inject constructor(
                 .subscribe(getTeacherObservableSubscriber(emitter))
         }
 
-    override fun getTeacherById(id: UUID): Single<Response<Teacher>> =
+    override fun getTeacherById(id: UUID): Single<Response<TeacherDTO>> =
         Single.create { emitter ->
             api.getTeacherById(id)
                 .subscribeOn(Schedulers.io())
@@ -35,7 +35,7 @@ class TeacherDataSourceImpl @Inject constructor(
         }
 
 
-    override fun updateTeacher(teacher: Teacher): Single<Response<Unit>> =
+    override fun updateTeacher(teacher: TeacherDTO): Single<Response<Unit>> =
         Single.create { emitter ->
             teacher.id?.let {
                 api.updateTeacher(it, teacher)
@@ -59,7 +59,7 @@ class TeacherDataSourceImpl @Inject constructor(
                 )
         }
 
-    override fun getAllAccessibleTeachers(): Single<Response<List<Teacher>>> =
+    override fun getAllAccessibleTeachers(): Single<Response<List<TeacherDTO>>> =
         Single.create { emitter ->
             api.getAllAccessibleTeachers()
                 .subscribeOn(Schedulers.io())
@@ -77,9 +77,9 @@ class TeacherDataSourceImpl @Inject constructor(
 
 
     private fun getTeacherObservableSubscriber(
-        emitter: SingleEmitter<Response<Teacher>>
-    ) = object : SingleObserver<WeakApiResponse<Teacher>> {
-        override fun onSuccess(response: WeakApiResponse<Teacher>) =
+        emitter: SingleEmitter<Response<TeacherDTO>>
+    ) = object : SingleObserver<WeakApiResponse<TeacherDTO>> {
+        override fun onSuccess(response: WeakApiResponse<TeacherDTO>) =
             if (response.payload != null) {
                 emitter.onSuccess(Response.Ok(response.payload))
             } else {

@@ -1,4 +1,4 @@
-package com.studa.android.client.view
+package com.studa.android.client.view.launcher
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import com.studa.android.client.R
 import com.studa.android.client.api.network_wrapper.NetworkWrapper
 import com.studa.android.client.utils.shared_preferences.SharedPreferencesWrapper
+import com.studa.android.client.view.auth.AuthenticationActivity
+import com.studa.android.client.view.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
@@ -27,7 +29,7 @@ class LauncherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // TODO: Delete this on backend implementation finish
-        //sharedPreferencesWrapper.saveAccessToken("token")
+        // sharedPreferencesWrapper.saveAccessToken("token")
 
         Single.fromCallable {
             sharedPreferencesWrapper.getAccessToken()

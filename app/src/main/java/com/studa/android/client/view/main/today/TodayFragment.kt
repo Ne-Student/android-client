@@ -1,4 +1,4 @@
-package com.studa.android.client.view.today
+package com.studa.android.client.view.main.today
 
 import android.os.Bundle
 import android.util.Log
@@ -12,13 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studa.android.client.R
 import com.studa.android.client.api.network_wrapper.NetworkWrapper
-import com.studa.android.client.view.today.calendar.FragmentChanger
-import com.studa.android.client.view.today.bottomsheet.AddItemBottomDialogFragment
-import com.studa.android.client.view.today.calendar.CalendarFragment
+import com.studa.android.client.view.main.today.calendar.FragmentChanger
+import com.studa.android.client.view.main.today.bottomsheet.AddItemBottomDialogFragment
+import com.studa.android.client.view.main.today.calendar.CalendarFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
-private const val TAG = "TodayFragment"
 
 @AndroidEntryPoint
 class TodayFragment : Fragment() {
@@ -109,6 +107,7 @@ class TodayFragment : Fragment() {
 
 
     companion object {
+        private const val TAG = "TodayFragment"
         fun newInstance(): TodayFragment = TodayFragment()
     }
 }

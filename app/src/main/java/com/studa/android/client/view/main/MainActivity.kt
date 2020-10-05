@@ -1,5 +1,7 @@
-package com.studa.android.client.view
+package com.studa.android.client.view.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.setPadding
@@ -8,8 +10,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.studa.android.client.R
 import com.studa.android.client.utils.dpToInt
-import com.studa.android.client.view.today.TodayFragment
-import com.studa.android.client.view.today.calendar.FragmentChanger
+import com.studa.android.client.view.main.today.TodayFragment
+import com.studa.android.client.view.main.today.calendar.FragmentChanger
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "MainActivity"
@@ -61,4 +63,8 @@ class MainActivity : AppCompatActivity(), FragmentChanger {
         currentItem = 1
     }
 
+    companion object {
+        fun newIntent(packageContext: Context) =
+            Intent(packageContext, MainActivity::class.java)
+    }
 }

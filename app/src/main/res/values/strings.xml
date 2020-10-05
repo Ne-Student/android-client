@@ -34,5 +34,10 @@
     <!-- Login screen strings -->
     <string name="login">Login</string>
     <string name="password">Password</string>
-    <string name="bottom_label">Don’t have an account?\nConsider creating a new one</string>
+    <string name="bottom_label_login">Don’t have an account?\nConsider creating a new one</string>
+    
+    <!-- Register screen strings -->
+    <string name="repeat_password">Repeat password</string>
+    <string name="create_account">Create account</string>
+    <string name="bottom_label_register">Already have an account?</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.studa.android.client.view.today.calendar
+package com.studa.android.client.view.main.today.calendar
 
 import androidx.fragment.app.Fragment
 
