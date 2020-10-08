@@ -1,8 +1,10 @@
 package com.studa.android.client.di_modules
 
 import com.studa.android.client.api.data_sources.AuthenticationDataSource
+import com.studa.android.client.api.data_sources.LessonDataSource
 import com.studa.android.client.api.data_sources.impl.AuthenticationDataSourceImpl
 import com.studa.android.client.api.data_sources.TeacherDataSource
+import com.studa.android.client.api.data_sources.impl.LessonDataSourceImpl
 import com.studa.android.client.api.data_sources.impl.TeacherDataSourceImpl
 import com.studa.android.client.api.network_wrapper.NetworkWrapper
 import com.studa.android.client.api.network_wrapper.NetworkWrapperImpl
@@ -28,4 +30,8 @@ class NetworkModule {
     @Provides
     fun getAuthenticationService(networkWrapper: NetworkWrapper): AuthenticationDataSource =
         AuthenticationDataSourceImpl(networkWrapper)
+
+    @Provides
+    fun getLessonService(networkWrapper: NetworkWrapper): LessonDataSource =
+        LessonDataSourceImpl(networkWrapper)
 }

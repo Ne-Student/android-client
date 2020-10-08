@@ -1,12 +1,16 @@
 package com.studa.android.client.api.dto
 
+import com.google.gson.annotations.SerializedName
 import java.util.*
 
 data class LessonDTO(
-    var id: UUID? = null,
-    var title: String? = null,
-    var description: String? = null,
-    var teachers: List<TeacherDTO>? = null,
-    var repeats: List<RepeatDTO>? = null,
-    var singles: List<SingleDTO>? = null
+    var id: UUID?,
+    var title: String?,
+    var description: String?,
+    @SerializedName("teachers")
+    var teachersIds: List<UUID>?,
+    var singles: List<String>?,
+    var daily: List<DailyDTO>?,
+    var monthly: List<MonthlyDTO>?,
+    var weekly: List<WeeklyDTO>?
 )

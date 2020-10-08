@@ -26,10 +26,6 @@ class AuthenticationActivity : AppCompatActivity(), FragmentChanger, ActivityCha
     override fun transitToFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(
-//                R.anim.enter_from_right,
-//                R.anim.exit_to_left,
-//                R.anim.enter_from_left,
-//                R.anim.exit_to_right
                 R.anim.fragment_open_enter,
                 R.anim.fragment_open_exit,
                 R.anim.fragment_close_enter,
@@ -40,6 +36,18 @@ class AuthenticationActivity : AppCompatActivity(), FragmentChanger, ActivityCha
             .commit()
     }
 
+    override fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.fragment_open_enter,
+                R.anim.fragment_open_exit,
+                R.anim.fragment_close_enter,
+                R.anim.fragment_close_exit
+            )
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
     override fun transitToActivity(intent: Intent) {
         startActivity(intent)
     }
@@ -47,6 +55,7 @@ class AuthenticationActivity : AppCompatActivity(), FragmentChanger, ActivityCha
 
 interface FragmentChanger {
     fun transitToFragment(fragment: Fragment)
+    fun replaceFragment(fragment: Fragment)
 }
 
 interface ActivityChanger {

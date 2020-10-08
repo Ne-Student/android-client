@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.studa.android.client.R
 import com.studa.android.client.view.auth.ActivityChanger
 import com.studa.android.client.view.auth.FragmentChanger
-import com.studa.android.client.view.auth.landing.LandingPageFragment.Companion.newInstance
 import com.studa.android.client.view.auth.login.LoginFragment
 import com.studa.android.client.view.auth.register.RegisterFragment
 import com.studa.android.client.view.main.MainActivity

@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 data class TeacherDTO(
-    var id: UUID? = null,
+    var id: UUID?,
 
     @SerializedName("associated_account_id")
-    var associatedAccountId: UUID? = null,
+    var associatedAccountId: UUID?,
 
     @SerializedName("first_name")
-    var firstName: String? = null,
+    var firstName: String?,
 
     @SerializedName("last_name")
-    var lastName: String? = null
+    var lastName: String?
 )

@@ -1,9 +1,6 @@
 package com.studa.android.client.api
 
-import com.studa.android.client.api.dto.AccessTokenDTO
-import com.studa.android.client.api.dto.AuthenticationDataDTO
-import com.studa.android.client.api.dto.RegisterDataDTO
-import com.studa.android.client.api.dto.TeacherDTO
+import com.studa.android.client.api.dto.*
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.*
@@ -36,4 +33,21 @@ interface ApiEndpoints {
     @GET("teachers")
     fun getAllAccessibleTeachers(): Single<WeakApiResponse<List<TeacherDTO>>>
 
+
+    // Lesson endpoints
+
+    @PUT("lesson")
+    fun createLesson(@Body lesson: LessonDTO): Single<WeakApiResponse<LessonDTO>>
+
+    @GET("lesson/{id}")
+    fun getLessonById(@Path("id") id: UUID): Single<WeakApiResponse<LessonDTO>>
+
+    @PATCH("lesson/{id}")
+    fun updateLesson(@Path("id") id: UUID, @Body lesson: LessonDTO): Completable
+
+    @DELETE("lesson/{id}")
+    fun deleteLesson(@Path("id") id: UUID): Completable
+
+    @GET("lessons")
+    fun getAllLessonsForDate(@Query("date") dateString: String): Single<WeakApiResponse<List<LessonDTO>>>
 }
